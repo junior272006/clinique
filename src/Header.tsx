@@ -6,6 +6,8 @@ import {
   Drawer,
   Group,
   ScrollArea,
+  Text,
+  Stack
 } from '@mantine/core';
 import { useDisclosure } from '@mantine/hooks';
 import HospitalLogo from './HospitalLogo';
@@ -19,7 +21,28 @@ export default function Header() {
     <Box pb={120}>
       <header className={classes.header}>
         <Group justify="space-between" h="100%">
-          <HospitalLogo size={48} />
+        <Group gap="xs" align="center" wrap="nowrap">
+  <HospitalLogo size={48} />
+  <Stack gap={0}>
+    <Text 
+      fw={700} 
+      size="xl"
+      variant="gradient"
+      gradient={{ from: 'clinicBlue.5', to: 'clinicGreen.5', deg: 120 }}
+      style={{ whiteSpace: 'nowrap', lineHeight: 1.2 }}
+    >
+      Clinique La Santé
+    </Text>
+    <Text 
+      size="xs"
+      c="dimmed"
+      fw={500}
+      style={{ letterSpacing: '0.5px' }}
+    >
+      MEDICAL PLATFORM
+    </Text>
+  </Stack>
+</Group>
 
           <Group h="100%" gap={0} visibleFrom="sm">
             <a href="#" className={classes.link}>
@@ -58,7 +81,6 @@ export default function Header() {
         onClose={closeDrawer}
         size="100%"
         padding="md"
-        title="Navigation"
         hiddenFrom="sm"
         zIndex={1000000}
       >
